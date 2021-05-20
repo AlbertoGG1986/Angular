@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row input-group pad">
+    <form class="pad">
+      <mat-form-field>
+        <mat-label>Insert breed</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="breed"
+          placeholder="Breed"
+          name="breed"
+        />
+      </mat-form-field>
+      <button mat-raised-button (click)="findDog()">Fetch!</button>
+      <button mat-raised-button (click)="clear()">Clear</button>
+    </form>
+  </div>
+
+  <ng-template [ngIf]="dogUrl">
+    <div class="text-center pad">
+      <img class="img-fluid img-thumbnail" [src]="dogUrl" />
+    </div>
+  </ng-template>
+
+  <div *ngIf="failedtofetch" class="pad">
+    <p>
+      Failed to fetch dog from the breed: <b>{{ breed }}</b>
+    </p>
+  </div>
+</div>

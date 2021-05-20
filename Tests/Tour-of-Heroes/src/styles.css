@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.card {
+    background-color:darkslateblue;
+    max-width: 250px;
+    height: 150px;
+    padding: 10px;
+}
+.selectedcard  {
+    background-color:tomato;
+    max-width: 250px;
+    height: 150px;
+    padding: 10px;
+}
+.editingcard {
+    background-color:deepskyblue;
+    max-width: 700px;
+    height: 150px;
+    padding: 10px;
+}
+.container {
+    display: flex; /* or inline-flex */
+    flex-wrap: wrap;
+}
+.example-button {
+    background-color: yellow;
+    color: midnightblue;
+}
+.message {
+    background-color:olivedrab;
+    max-width: 500px;
+    padding: 10px;
+}
+.tab {
+    background-color: orchid;
+    color: white;
+}

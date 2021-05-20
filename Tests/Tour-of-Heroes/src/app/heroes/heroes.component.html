@@ -1,0 +1,35 @@
+<div class="container">
+    <mat-card class="card" *ngFor="let hero of heroes" >
+        <!-- [class.selectedcard]="hero === selectedHero" -->
+        <mat-card-header >
+            <mat-card-title>{{hero.name | uppercase }} Details</mat-card-title>
+            <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
+        </mat-card-header>
+        <!-- <img matCardImage src="Card wide image source"> -->
+        <mat-card-content>
+            <div><span>Id: </span>{{hero.id}}</div>
+            <div><span>Name: </span>{{hero.name}}</div>
+        </mat-card-content>
+        <mat-card-actions align="start">
+            <button mat-button class="example-button" >
+                <!-- (click)="onSelect(hero)" -->
+                <a routerLink="/detail/{{hero.id}}">{{hero.name}}</a></button>
+                <button mat-button class="example-button" title="delete hero" (click)="delete(hero)">X</button>
+        </mat-card-actions> 
+        <!-- <mat-card-footer>
+            Footer
+        </mat-card-footer>-->
+    </mat-card>
+</div>
+<!-- <div>
+    <app-hero-detail [hero]="selectedHero"></app-hero-detail>
+</div> -->
+<div>
+    <label for="new-hero">Hero name: </label>
+    <input id="new-hero" #heroName />
+  
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button class="add-button" (click)="add(heroName.value); heroName.value=''">
+      Add hero
+    </button>
+  </div>

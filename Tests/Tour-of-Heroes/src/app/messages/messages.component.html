@@ -1,0 +1,20 @@
+<div>
+
+    <mat-card class="message" *ngIf="messageService.messages.length">
+        <mat-card-header>
+            <mat-card-title>Messages</mat-card-title>
+            <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
+        </mat-card-header>
+        <!-- <img matCardImage src="Card wide image source"> -->
+        <mat-card-content>
+            <button mat-button class="example-button" (click)="messageService.clear()">Clear messages</button>
+            <div *ngFor='let message of messageService.messages'> {{message}} </div>
+        </mat-card-content>
+        <!-- <mat-card-actions align="start">
+            <button mat-button (click)="onAction1">Action1</button>
+        </mat-card-actions> 
+        <mat-card-footer>
+            Footer
+        </mat-card-footer>-->
+    </mat-card>
+</div>

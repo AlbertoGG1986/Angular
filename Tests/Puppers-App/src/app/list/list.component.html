@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="pad">
+    <mat-form-field appearance="fill">
+      <mat-label>Select a breed</mat-label>
+      <mat-select
+        [(ngModel)]="selectedbreed"
+        name="food"
+        [(value)]="selectedbreed"
+        (selectionChange)="listSubbreeds()"
+      >
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let cosa of breeds | keyvalue" [value]="cosa.key">
+          {{ cosa.key }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <p>You selected: {{ selectedbreed }}</p>
+  </div>
+
+  <div class="pad" *ngIf="selectedbreedhassubs">
+    <mat-form-field appearance="fill">
+      <mat-label>Select a subbreed</mat-label>
+      <mat-select
+        [(ngModel)]="selectedsubbreed"
+        name="food"
+        [(value)]="selectedsubbreed"
+        (selectionChange)="showsub()"
+      >
+        <mat-option>None</mat-option>
+        <mat-option
+          *ngFor="let cosa of subbreeds | keyvalue"
+          [value]="cosa.value"
+        >
+          {{ cosa.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <p>You selected: {{ selectedsubbreed }}</p>
+  </div>
+
+  <div class="pad" *ngIf="selectedbreed">
+    <button mat-raised-button (click)="findDog()">Fetch!</button>
+    <button mat-raised-button (click)="clear()">Clear</button>
+  </div>
+
+  <ng-template [ngIf]="dogUrl">
+    <div class="text-center pad">
+      <img class="img-fluid img-thumbnail" [src]="dogUrl" />
+    </div>
+  </ng-template>
+</div>
