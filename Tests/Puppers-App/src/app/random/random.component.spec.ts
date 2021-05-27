@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { RandomComponent } from './random.component';
 
 describe('RandomComponent', () => {
@@ -8,9 +8,10 @@ describe('RandomComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RandomComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientModule],
+      providers: [],
+      declarations: [RandomComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { ListComponent } from './list.component';
 
 describe('ListComponent', () => {
@@ -9,6 +9,8 @@ describe('ListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ListComponent],
+      imports: [HttpClientModule],
+      providers: [],
     }).compileComponents();
   });
 
