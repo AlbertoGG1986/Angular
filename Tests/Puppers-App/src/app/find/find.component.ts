@@ -10,7 +10,7 @@ export class FindComponent implements OnInit {
   breed!: string;
   subbreed!: string;
   failedtofetch!: boolean;
-  dogUrl!: string;
+  dogUrl: string = '';
 
   constructor(private dogService: DogService) {}
 

@@ -1,0 +1,119 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-dark">
+    <table id="opciones" >
+        <thead class="thead-light">
+            <tr>
+                <th style="color: aliceblue;">OPTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <!-- <label for="colect">Pick a set</label>
+                        <select class="form-control" id="set" ng-options="set as set.name for set in sets" [[(ngModel)]="binding"] ng-change="update()"></select> -->
+
+                        <mat-form-field appearance="fill">
+                            <mat-label>Select a set</mat-label>
+                            <mat-select
+                              [(ngModel)]="selectedSet"
+                              name="food"
+                              [(value)]="selectedSet"
+                              (selectionChange)="chooseSet()"
+                            >
+                              <mat-option>None</mat-option>
+                              <mat-option *ngFor="let cosa of sets" [value]="cosa.name">
+                                {{ cosa.name }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th>SEARCH</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="search.name" placeholder="Card Name">
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table id="order" class="table table-striped">
+        <tbody>
+            <div>
+                <button class="btn btn-primary btn-block" ng-click="orden = 'name'">Alphabetical order</button>
+                <button class="btn btn-primary btn-block" ng-click="orden = '-name'">Reverse alphabetical order</button>
+                <button class="btn btn-primary btn-block" ng-click="orden = 'cmc'">Converted Mana Cost</button>
+            </div>
+        </tbody>
+    </table>
+    <table class="table table-striped" id="mobile">
+        <thead class="thead-light">
+            <tr>
+                <th>CARDS SHOWN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td ng-model="counted">
+                    There are {{cartas.length}} cards in total<br>in the {{selectedItem.name}} set
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="table table-striped" id="mobile">
+        <table>
+            <tbody>
+                <dir-pagination-controls boundary-links="true" template-url="js/dirPagination2.tpl.html"></dir-pagination-controls>
+
+                <button class="btn btn-primary btn-block" ng-click="clear()">Clear</button>
+            </tbody>
+        </table>
+    </div><table id="order" class="table table-striped">
+        <tbody>
+            <div>
+                <button class="btn btn-primary btn-block" ng-click="orden = 'name'">Alphabetical order</button>
+                <button class="btn btn-primary btn-block" ng-click="orden = '-name'">Reverse alphabetical order</button>
+                <button class="btn btn-primary btn-block" ng-click="orden = 'cmc'">Converted Mana Cost</button>
+            </div>
+        </tbody>
+    </table>
+    <table class="table table-striped" id="mobile">
+        <thead class="thead-light">
+            <tr>
+                <th>CARDS SHOWN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td ng-model="counted">
+                    There are {{cartas.length}} cards in total<br>in the {{selectedItem.name}} set
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="table table-striped" id="mobile">
+        <table>
+            <tbody>
+                <dir-pagination-controls boundary-links="true" template-url="js/dirPagination2.tpl.html"></dir-pagination-controls>
+
+                <button class="btn btn-primary btn-block" ng-click="clear()">Clear</button>
+            </tbody>
+        </table>
+    </div> -->
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item"><a href="#" class="nav-link text-black">Hola</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-black">Cosa</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-black">Otro</a></li>
+    </ul>
+</div>

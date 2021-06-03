@@ -7,7 +7,7 @@ import { DogService } from '../services/dogs.service';
   styleUrls: ['./random.component.scss'],
 })
 export class RandomComponent implements OnInit {
-  dogUrl!: string;
+  dogUrl: string = '';
 
   constructor(private dogService: DogService) {}
 

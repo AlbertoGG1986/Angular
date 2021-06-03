@@ -1,0 +1,149 @@
+<div class="row">
+  <div class="col-lg-3 bg-dark" id="sidebar">
+    <table class="table table-striped">
+      <thead class="thead-light">
+        <tr>
+          <th>OPTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="form-group">
+              <!-- <label for="colect">Pick a set</label>
+                        <select class="form-control" id="set" ng-options="set as set.name for set in sets" [[(ngModel)]="binding"] ng-change="update()"></select> -->
+
+              <mat-form-field appearance="fill">
+                <mat-label>Select a set</mat-label>
+                <mat-select
+                  [(ngModel)]="selectedSet"
+                  id="sets"
+                  name="sets"
+                  (selectionChange)="chooseSet()"
+                >
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let cosa of sets" [value]="cosa">
+                    {{ cosa.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table table-striped">
+      <thead class="thead-light">
+        <tr>
+          <th>SEARCH CARD</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="form-group">
+              <input
+                type="text"
+                #searchBox
+                id="search-box"
+                class="form-control"
+                (input)="searchNew(searchBox.value)"
+                placeholder="Card Name"
+                [(ngModel)]="searchString"
+              />
+
+              <!-- <ul class="search-result">
+                        <li *ngFor="let set of sets$ | async" >
+                          <a routerLink="/detail/{{hero.id}}">
+                            {{hero.name}}
+                          </a>
+                        </li>
+                      </ul> -->
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="container"
+          style="display: flex; justify-content: center; flex-wrap: wrap"
+        >
+          <button
+            class="btn"
+            (click)="clear()"
+            style="background-color: darkgrey; color: white"
+          >
+            Clear search
+          </button>
+          <button
+            class="btn"
+            (click)="sortCards()"
+            style="background-color: darkgrey; color: white"
+          >
+            sortCards
+          </button>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table table-striped" id="mobile">
+      <thead class="thead-light">
+        <tr>
+          <th>CARDS SHOWN</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <p style="color: white">
+              There are {{ cards.length }} cards in total<br />in the
+              {{ selectedSet.name }} set.
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item"><a href="#" class="nav-link text-black">Hola</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-black">Cosa</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-black">Otro</a></li>
+    </ul> -->
+  </div>
+
+  <div id="cartas" class="col-9">
+    <mat-paginator
+      [length]="cards.length"
+      [pageSize]="8"
+      [pageSizeOptions]="[8, 16, 100]"
+      (page)="onPageChange($event)"
+    >
+    </mat-paginator>
+
+    <div class="row row-cols-md-5">
+      <div class="card" style="margin: 5px" *ngFor="let card of pageSlice">
+        <img class="card-img-top" [src]="card.image_uri" alt="pic" />
+        <div class="card-body">
+          <h3 class="card-title">
+            <strong>{{ card.name | titlecase }}</strong>
+          </h3>
+          <!-- <p class="card-text">{{ card.oracle_text}}</p> -->
+          <a href="{{ card.scryfall_uri }}" target="_blank" class="btn btn-info"
+            >Go to Scryfall</a
+          >
+        </div>
+      </div>
+
+      <!-- <mat-card class="example-card" *ngFor="let card of cards">
+        <mat-card-header>
+          <mat-card-title>{{ card.name }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]=card.image_uri alt="pic">
+        <mat-card-content>
+          <p>
+            
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button class="btn btn-info">Go to Scryfall</button>
+        </mat-card-actions>
+      </mat-card> -->
+    </div>
+  </div>
+</div>
